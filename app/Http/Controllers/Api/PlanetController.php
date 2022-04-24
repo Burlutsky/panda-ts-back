@@ -97,12 +97,20 @@ class PlanetController extends ApiController
      * Update the specified resource in storage.
      *
      * @param Request $request
-     * @param  int  $id
-     * @return Response
+     * @param Planets $planet
+     * @return JsonResponse
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Planets $planet): JsonResponse
     {
         //
+        $planet = $this->service->store($request, $planet);
+
+        return ResponseService::sendJsonResponse(
+            true,
+            [
+                'item' => $planet->toArray()
+            ]
+        );
     }
 
     /**
