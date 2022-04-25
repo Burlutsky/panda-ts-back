@@ -116,10 +116,10 @@ class VehicleController extends ApiController
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param int $id
      * @return Response
      */
-    public function destroy($id): Response
+    public function destroy(int $id): Response
     {
         //
     }
